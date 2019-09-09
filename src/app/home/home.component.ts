@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent {
-  title = 'bubble';
+export class HomeComponent implements OnInit {
 
-  swap(el1, el2) {
+  constructor() {
+    
+   }
+
+  ngOnInit() {
+    this.generateBlocks();
+  }
+
+    swap(el1, el2) {
     return new Promise(resolve => {
       const style1 = window.getComputedStyle(el1);
       const style2 = window.getComputedStyle(el2);
@@ -25,7 +32,7 @@ export class AppComponent {
         setTimeout(() => {
           container.insertBefore(el2, el1);
           resolve();
-        }, 250);
+        }, 100);
       });
     });
   }
