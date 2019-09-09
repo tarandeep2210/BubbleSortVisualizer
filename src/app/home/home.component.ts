@@ -72,6 +72,11 @@ export class HomeComponent implements OnInit {
   
    generateBlocks(num = 20) {
     const container = document.querySelector(".data-container");
+    let blocks:any = document.querySelectorAll(".block");
+    for(let i=0;i<blocks.length;i++){
+      container.removeChild(blocks[i]);
+    }
+    
     for (let i = 0; i < num; i += 1) {
       const value = Math.floor(Math.random() * 100).toString();
   
